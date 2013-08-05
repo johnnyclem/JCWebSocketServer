@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author       = { "John Clem" => "johnnyclem@gmail.com" }
   s.source       = { :git => "https://github.com/johnnyclem/JCWebSocketServer.git", :commit => "97bc673c0bdf29eca8f405d8863a7374bbf54192" }
   s.platform     = :osx, '10.8'
-  s.source_files = '*.{h,m}'
+  s.source_files = 'JCWebSocketServer/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
   s.dependency 'CocoaAsyncSocket', '~> 7.3.1'
