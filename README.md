@@ -1,7 +1,11 @@
-MBWebSocketServer
+JCWebSocketServer
 =================
 A websocket *server implementation*, (you cannot instantiate an instance that
 does not bind to a port).
+
+This is a fork of the no-longer-maintained [MBWebSocketServer] [mbwebsocketserver]
+
+SocketRocket is an excellent client lib for websockets in Cocoa, and CocoaAsyncSocket is an excellent lower-level implementation for websocket client/server, however the goal of this project is to make a simple-to-use Cocoa websocket server with a similar syntax/ease of use to [SocketRocket] [socketrocket]
 
 NOTE! I have not tested it extensively and there are many old WS versions. So
 you may well have to hack it to make it work. But! There is not much code.
@@ -9,7 +13,7 @@ And! I believe it is quite readable. I will help! Mail me!
 
 Tested against recent Chrome, Safari and Firefox versions. Only tested on Mac.
 
-If you want a client implementation, use Square’s SocketRocket.
+If you want a client implementation, use Square’s [SocketRocket] [socketrocket].
 
 Caveats
 -------
@@ -50,6 +54,14 @@ Example Usage
 
 Author
 ------
-I’m [Max Howell][mxcl] and I'm a splendid chap
+[John Clem] [johnnyclem]
+
+Forked from [Max Howell][mxcl]
+
+[socketrocket]:https://github.com/square/SocketRocket
+
+[mbwebsocketserver]:https://github.com/mxcl/MBWebSocketServer
+
+[johnnyclem]:http://github.com/johnnyclem
 
 [mxcl]:http://twitter.com/mxcl
