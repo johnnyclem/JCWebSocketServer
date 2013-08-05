@@ -2,12 +2,12 @@
 // This class is in the public domain.
 
 #import <CommonCrypto/CommonDigest.h>
-#import "MBWebSocketServer.h"
+#import "JCWebSocketServer.h"
 
-@interface MBWebSocketServer () <GCDAsyncSocketDelegate>
+@interface JCWebSocketServer () <GCDAsyncSocketDelegate>
 @end
 
-@interface NSString (MBWebSocketServer)
+@interface NSString (JCWebSocketServer)
 - (id)sha1base64;
 @end
 
@@ -19,10 +19,10 @@ static unsigned long long ntohll(unsigned long long v) {
 
 
 
-@implementation MBWebSocketServer
+@implementation JCWebSocketServer
 @dynamic clientCount;
 
-- (id)initWithPort:(NSUInteger)port delegate:(id<MBWebSocketServerDelegate>)delegate {
+- (id)initWithPort:(NSUInteger)port delegate:(id<JCWebSocketServerDelegate>)delegate {
     _port = port;
     _delegate = delegate;
     socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -191,7 +191,7 @@ static unsigned long long ntohll(unsigned long long v) {
 
 
 
-@implementation NSString (MBWebSocketServer)
+@implementation NSString (JCWebSocketServer)
 
 - (id)sha1base64 {
     NSMutableData* data = (id) [self dataUsingEncoding:NSUTF8StringEncoding];
@@ -228,7 +228,7 @@ static unsigned long long ntohll(unsigned long long v) {
 
 
 
-@implementation NSData (MBWebSocketServer)
+@implementation NSData (JCWebSocketServer)
 
 - (id)webSocketFrameData {
     NSMutableData *data = [NSMutableData dataWithLength:10];
@@ -264,7 +264,7 @@ static unsigned long long ntohll(unsigned long long v) {
 
 
 
-@implementation GCDAsyncSocket (MBWebSocketServer)
+@implementation GCDAsyncSocket (JCWebSocketServer)
 
 - (void)writeWebSocketFrame:(id)object {
     [self writeData:[object webSocketFrameData] withTimeout:-1 tag:3];

@@ -28,25 +28,25 @@ Example Usage
 -------------
 ```objc
 - (void)applicationDidFinishLaunching:(NSNotification *)note {
-    self.ws = [[MBWebSocketServer alloc] initWithPort:13581 delegate:self];
+    self.ws = [[JCWebSocketServer alloc] initWithPort:13581 delegate:self];
 }
 
-- (void)webSocketServer:(MBWebSocketServer *)webSocketServer didAcceptConnection:(GCDAsyncSocket *)connection {
+- (void)webSocketServer:(JCWebSocketServer *)webSocketServer didAcceptConnection:(GCDAsyncSocket *)connection {
     NSLog(@"Connected to a client, we accept multiple connections");
 }
 
-- (void)webSocketServer:(MBWebSocketServer *)webSocket didReceiveData:(NSData *)data fromConnection:(GCDAsyncSocket *) {
+- (void)webSocketServer:(JCWebSocketServer *)webSocket didReceiveData:(NSData *)data fromConnection:(GCDAsyncSocket *) {
     NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
     [connection writeWebSocketFrame:@"Thanks for the data!"]; // you can write NSStrings or NSDatas
 }
 
-- (void)webSocketServer:(MBWebSocketServer *)webSocketServer clientDisconnected:(GCDAsyncSocket *)connection {
+- (void)webSocketServer:(JCWebSocketServer *)webSocketServer clientDisconnected:(GCDAsyncSocket *)connection {
     NSLog(@"Disconnected from client: %@", connection);
 }
 
-- (void)webSocketServer:(MBWebSocketServer *)webSocketServer couldNotParseRawData:(NSData *)rawData fromConnection:(GCDAsyncSocket *)connection error:(NSError *)error {
-    NSLog(@"MBWebSocketServer error: %@", error);
+- (void)webSocketServer:(JCWebSocketServer *)webSocketServer couldNotParseRawData:(NSData *)rawData fromConnection:(GCDAsyncSocket *)connection error:(NSError *)error {
+    NSLog(@"JCWebSocketServer error: %@", error);
 }
 
 ```
@@ -60,7 +60,7 @@ Forked from [Max Howell][mxcl]
 
 [socketrocket]:https://github.com/square/SocketRocket
 
-[mbwebsocketserver]:https://github.com/mxcl/MBWebSocketServer
+[mbwebsocketserver]:https://github.com/mxcl/JCWebSocketServer
 
 [johnnyclem]:http://github.com/johnnyclem
 
